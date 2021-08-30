@@ -12,22 +12,24 @@ import { LogLevel } from "@azure/msal-browser";
  */
 export const b2cPolicies = {
     names: {
-        signUpSignIn: "b2c_1_susi",
-        forgotPassword: "b2c_1_reset",
+        signUpSignIn: "B2C_1_TestOnly",
+        forgotPassword: "B2C_1_B2CReset",
         editProfile: "b2c_1_edit_profile"
     },
     authorities: {
         signUpSignIn: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+            //authority: "https://aspirionauth.b2clogin.com/tfp/7acae070-87cb-4c7d-87c8-c905bc3301be/B2C_1_SignIn",
+            //authority: "https://aspirionauth.b2clogin.com/tfp/aspirionauth.onmicrosoft.com/B2C_1_SignIn",
+            authority: "https://aspirionauth.b2clogin.com/aspirionauth.onmicrosoft.com/B2C_1_TestOnly",
         },
         forgotPassword: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+            authority: "https://aspirionauth.b2clogin.com/aspirionauth.onmicrosoft.com/B2C_1_B2CReset",
         },
         editProfile: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
+            authority: "https://aspirionauth.b2clogin.com/aspirionauth.onmicrosoft.com/b2c_1_edit_profile"
         }
     },
-    authorityDomain: "fabrikamb2c.b2clogin.com"
+    authorityDomain: "aspirionauth.b2clogin.com"
 }
 
 /**
@@ -37,7 +39,7 @@ export const b2cPolicies = {
  */
 export const msalConfig = {
     auth: {
-        clientId: "2fdd06f3-7b34-49a3-a78b-0cf1dd87878e", // This is the ONLY mandatory field that you need to supply.
+        clientId: "85762524-d8cd-4d88-bf8b-9af1db78c1fa", // This is the ONLY mandatory field that you need to supply.
         authority: b2cPolicies.authorities.signUpSignIn.authority, // Use a sign-up/sign-in user-flow as a default authority
         knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
         redirectUri: "/", // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
